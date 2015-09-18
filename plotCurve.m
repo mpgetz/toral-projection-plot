@@ -2,8 +2,8 @@ function plotCurve(x, y)
 %takes vector of x-values and matrix of y-values as input
 %and plots to same 1x1 grid
 
-figure
-hold on;
+%figure
+%hold on;
 [c_1, c_2] = size(y);
 
 for r = 1:c_1

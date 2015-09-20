@@ -11,20 +11,20 @@ r = 1;
 %compute y-values and retain only decimal portion
 %note: 1's are represented as 0 but this is OK; graph will have
 %   apparent discontinuities 
-v = s*x;
+v = round(s*x, 4);
 i = v - floor(v);
 y(r, :) = i;
 %shift y-values up for next row and move down a row in y-matrix to store
 u = y(r, 101);
 r = r + 1;
-%disp(u)
+disp(u)
 %disp(y(r-1,:))
 
 %repeat above calculations until an integer is reached (rounding could
 %cause problems).
 %Note that rational slopes guarantee a conclusion.
 while u ~= 0
-    v = s*x + u;
+    v = round(s*x + u, 4);
     i = v - floor(v);
     y(r, :) = i;
     u = y(r, 101);
@@ -32,7 +32,7 @@ while u ~= 0
     if r >= 102
         y = [y; zeros(1, 101)];
     end
-    %disp(u)
+    disp(u)
     %disp(y(r-1,:))
 end
 
